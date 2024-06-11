@@ -12,10 +12,10 @@ app = Flask(__name__)
 # Database connection setup using environment variables
 def get_db_connection():
     conn = psycopg2.connect(
-        host=os.getenv('DB_HOST'),
-        database=os.getenv('DB_NAME'),
+        host=os.getenv('localhost'),
+        database=os.getenv('MyDash'),
         user=os.getenv('DB_USER'),
-        password=os.getenv('DB_PASSWORD'),
+        password=os.getenv('postgres'),
         port=os.getenv('DB_PORT', 5432)  # Default to 5432 if not set
     )
     return conn
