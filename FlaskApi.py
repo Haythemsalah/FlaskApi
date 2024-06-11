@@ -1,22 +1,16 @@
 from flask import Flask, jsonify
 import psycopg2
-import os
-from dotenv import load_dotenv
-
-# Load environment variables from .env file for local development
-load_dotenv()
 
 # Initialize the Flask application
 app = Flask(__name__)
 
-# Database connection setup using environment variables
+# Database connection setup
 def get_db_connection():
     conn = psycopg2.connect(
-        host=os.getenv('localhost'),
-        database=os.getenv('MyDash'),
-        user=os.getenv('DB_USER'),
-        password=os.getenv('postgres'),
-        port=os.getenv('DB_PORT', 5432)  # Default to 5432 if not set
+        host="localhost",
+        database="MyDash",
+        user="postgres",
+        password="haythem"
     )
     return conn
 
@@ -77,5 +71,4 @@ def get_data():
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=True)
-
+    app.run(debug=True)
