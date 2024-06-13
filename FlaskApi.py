@@ -7,10 +7,11 @@ app = Flask(__name__)
 # Database connection setup
 def get_db_connection():
     conn = psycopg2.connect(
-        host="localhost",
-        database="MyDash",
-        user="postgres",
-        password="haythem"
+        host="ep-rough-wood-a2wqpjcg.eu-central-1.aws.neon.tech",
+        database="MyDashDB",
+        user="MyDashDB_owner",
+        password="7LxGOcM1elDS",
+        port="5432"
     )
     return conn
 
